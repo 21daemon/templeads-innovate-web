@@ -21,7 +21,11 @@ const Index = () => {
         
         const targetElement = document.querySelector(href);
         if (targetElement) {
-          targetElement.scrollIntoView({
+          const navbarHeight = 80; // Approximate height of the navbar
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
             behavior: 'smooth'
           });
         }
@@ -39,11 +43,17 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
+      <div className="py-6"></div> {/* Spacing element */}
       <AboutSection />
+      <div className="py-4"></div> {/* Spacing element */}
       <ServicesSection />
+      <div className="py-4"></div> {/* Spacing element */}
       <PortfolioSection />
+      <div className="py-4"></div> {/* Spacing element */}
       <WhyChooseUs />
+      <div className="py-4"></div> {/* Spacing element */}
       <TestimonialsSection />
+      <div className="py-4"></div> {/* Spacing element */}
       <ContactSection />
       <Footer />
     </div>
