@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 shadow-md backdrop-blur-sm' : 'bg-transparent'}`}>
-      <div className="container mx-auto px-6 py-5">
+      <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <a href="#" className="flex items-center">
@@ -34,7 +34,7 @@ const Navbar = () => {
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-10">
+          <nav className="hidden md:flex items-center space-x-8">
             <a href="#home" className="font-medium text-templeads-primary hover:text-templeads-secondary transition-colors">Home</a>
             <a href="#about" className="font-medium text-templeads-primary hover:text-templeads-secondary transition-colors">About</a>
             <a href="#services" className="font-medium text-templeads-primary hover:text-templeads-secondary transition-colors">Services</a>
@@ -49,7 +49,7 @@ const Navbar = () => {
                 variant="ghost" 
                 size="sm" 
                 onClick={signOut}
-                className="flex items-center gap-1 text-gray-600"
+                className="flex items-center gap-2 text-gray-600"
               >
                 <LogOut size={16} />
                 Sign Out
@@ -81,12 +81,12 @@ const Navbar = () => {
             <a href="#testimonials" className="block font-medium text-templeads-primary hover:text-templeads-secondary" onClick={toggleMobileMenu}>Testimonials</a>
             <a href="#contact" className="block font-medium text-templeads-primary hover:text-templeads-secondary" onClick={toggleMobileMenu}>Contact</a>
             
-            <div className="pt-2 flex flex-col space-y-3">
+            <div className="pt-4 flex flex-col space-y-3">
               {user && (
                 <Button 
                   variant="outline" 
                   onClick={signOut}
-                  className="flex items-center justify-center gap-1"
+                  className="flex items-center justify-center gap-2"
                 >
                   <LogOut size={16} />
                   Sign Out
