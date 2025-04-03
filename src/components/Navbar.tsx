@@ -1,11 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X } from 'lucide-react';
+import { Menu, X, LogOut } from 'lucide-react';
+import { useAuth } from "@/contexts/AuthContext";
+import QuoteButton from "@/components/QuoteButton";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
@@ -40,10 +43,19 @@ const Navbar = () => {
             <a href="#contact" className="font-medium text-templeads-primary hover:text-templeads-secondary transition-colors">Contact</a>
           </nav>
           
-          <div className="hidden md:block">
-            <Button className="bg-gradient-to-r from-templeads-secondary to-templeads-accent text-white hover:shadow-lg transition-all px-6">
-              Get a Free Quote
-            </Button>
+          <div className="hidden md:flex items-center space-x-4">
+            {user && (
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={signOut}
+                className="flex items-center gap-1 text-gray-600"
+              >
+                <LogOut size={16} />
+                Sign Out
+              </Button>
+            )}
+            <QuoteButton />
           </div>
           
           {/* Mobile menu button */}
@@ -68,9 +80,20 @@ const Navbar = () => {
             <a href="#portfolio" className="block font-medium text-templeads-primary hover:text-templeads-secondary" onClick={toggleMobileMenu}>Portfolio</a>
             <a href="#testimonials" className="block font-medium text-templeads-primary hover:text-templeads-secondary" onClick={toggleMobileMenu}>Testimonials</a>
             <a href="#contact" className="block font-medium text-templeads-primary hover:text-templeads-secondary" onClick={toggleMobileMenu}>Contact</a>
-            <Button className="w-full bg-gradient-to-r from-templeads-secondary to-templeads-accent text-white hover:shadow-lg transition-all">
-              Get a Free Quote
-            </Button>
+            
+            <div className="pt-2 flex flex-col space-y-3">
+              {user && (
+                <Button 
+                  variant="outline" 
+                  onClick={signOut}
+                  className="flex items-center justify-center gap-1"
+                >
+                  <LogOut size={16} />
+                  Sign Out
+                </Button>
+              )}
+              <QuoteButton fullWidth />
+            </div>
           </div>
         </div>
       )}
