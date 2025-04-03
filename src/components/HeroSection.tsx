@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Layers, Palette } from 'lucide-react';
+import QuoteButton from "@/components/QuoteButton";
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -45,14 +46,18 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16" ref={heroRef}>
+    <section 
+      id="home" 
+      className="relative min-h-[calc(100vh-80px)] flex items-center py-24 md:py-32 px-4 md:px-8 lg:px-16"
+      ref={heroRef}
+    >
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-bg"></div>
       
       {/* Grid overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0% { transform: translateY(0); }
           50% { transform: translateY(-100px) translateX(20px); }
@@ -66,37 +71,38 @@ const HeroSection = () => {
         }
       `}</style>
       
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          <div className="md:col-span-7 text-center md:text-left space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+      <div className="container mx-auto relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+          <div className="md:col-span-7 text-center md:text-left space-y-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Innovating the Future with <span className="gradient-text">Smart Technology Solutions.</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto md:mx-0">
+            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto md:mx-0 leading-relaxed">
               We build cutting-edge digital products that transform businesses and deliver exceptional user experiences.
             </p>
             
-            <div className="flex flex-wrap gap-3 text-white/80 justify-center md:justify-start">
+            <div className="flex flex-wrap gap-4 text-white/80 justify-center md:justify-start mb-8">
               <div className="flex items-center gap-2">
-                <Code size={18} className="text-templeads-secondary" />
+                <Code size={20} className="text-templeads-secondary" />
                 <span>Web & App Development</span>
               </div>
               <div className="flex items-center gap-2">
-                <Layers size={18} className="text-templeads-secondary" />
+                <Layers size={20} className="text-templeads-secondary" />
                 <span>AI Solutions</span>
               </div>
               <div className="flex items-center gap-2">
-                <Palette size={18} className="text-templeads-secondary" />
+                <Palette size={20} className="text-templeads-secondary" />
                 <span>UI/UX & Branding</span>
               </div>
             </div>
             
-            <div className="pt-4 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
-              <Button className="bg-gradient-to-r from-templeads-secondary to-templeads-accent text-white hover:shadow-lg px-8 py-6 text-lg">
-                Get a Free Quote
-              </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 flex items-center gap-2 px-8 py-6 text-lg">
+            <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+              <QuoteButton className="px-10 py-6 text-lg" />
+              <Button 
+                variant="outline" 
+                className="border-white text-white hover:bg-white/10 flex items-center gap-2 px-10 py-6 text-lg"
+              >
                 Schedule a Call <ArrowRight size={18} />
               </Button>
             </div>
