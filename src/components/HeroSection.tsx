@@ -1,7 +1,6 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Robot, BrainCircuit, Cpu } from 'lucide-react';
+import { ArrowRight, Bot, BrainCircuit, Cpu } from 'lucide-react';
 import QuoteButton from "@/components/QuoteButton";
 import ScheduleMeetingButton from "@/components/ScheduleMeetingButton";
 
@@ -89,7 +88,7 @@ const HeroSection = () => {
                 <span>AI Development</span>
               </div>
               <div className="flex items-center gap-2">
-                <Robot size={20} className="text-templeads-secondary" />
+                <Bot size={20} className="text-templeads-secondary" />
                 <span>Intelligent Assistants</span>
               </div>
               <div className="flex items-center gap-2">

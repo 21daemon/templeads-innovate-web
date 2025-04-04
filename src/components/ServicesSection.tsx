@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Code, Smartphone, Database, PenTool, BarChart, Robot, BrainCircuit, Cpu, FlaskConical, Network } from 'lucide-react';
+import { Code, Smartphone, Database, PenTool, BarChart, Bot, BrainCircuit, Cpu, FlaskConical, Network } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -86,7 +85,7 @@ const ServicesSection = () => {
       ]
     },
     {
-      icon: <Robot size={24} />,
+      icon: <Bot size={24} />,
       title: "AI Chatbots & Assistants",
       description: "Intelligent conversational agents that enhance customer service and automate routine tasks.",
       highlighted: true,
