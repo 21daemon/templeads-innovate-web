@@ -1,9 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X, LogOut } from 'lucide-react';
+import { Menu, X, LogOut, MessageSquare } from 'lucide-react';
 import { useAuth } from "@/contexts/AuthContext";
 import QuoteButton from "@/components/QuoteButton";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,11 +27,11 @@ const Navbar = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <a href="#" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <span className="text-2xl font-bold text-templeads-primary">
                 Temple<span className="text-templeads-secondary">ads</span>
               </span>
-            </a>
+            </Link>
           </div>
           
           {/* Desktop Navigation */}
@@ -41,6 +42,10 @@ const Navbar = () => {
             <a href="#portfolio" className="font-medium text-templeads-primary hover:text-templeads-secondary transition-colors">Portfolio</a>
             <a href="#testimonials" className="font-medium text-templeads-primary hover:text-templeads-secondary transition-colors">Testimonials</a>
             <a href="#contact" className="font-medium text-templeads-primary hover:text-templeads-secondary transition-colors">Contact</a>
+            <Link to="/feedback" className="font-medium text-templeads-primary hover:text-templeads-secondary transition-colors flex items-center">
+              <MessageSquare size={16} className="mr-1" />
+              Feedback
+            </Link>
           </nav>
           
           <div className="hidden md:flex items-center space-x-4">
@@ -80,6 +85,10 @@ const Navbar = () => {
             <a href="#portfolio" className="block font-medium text-templeads-primary hover:text-templeads-secondary" onClick={toggleMobileMenu}>Portfolio</a>
             <a href="#testimonials" className="block font-medium text-templeads-primary hover:text-templeads-secondary" onClick={toggleMobileMenu}>Testimonials</a>
             <a href="#contact" className="block font-medium text-templeads-primary hover:text-templeads-secondary" onClick={toggleMobileMenu}>Contact</a>
+            <Link to="/feedback" className="block font-medium text-templeads-primary hover:text-templeads-secondary flex items-center" onClick={toggleMobileMenu}>
+              <MessageSquare size={16} className="mr-2" />
+              Feedback
+            </Link>
             
             <div className="pt-4 flex flex-col space-y-3">
               {user && (
