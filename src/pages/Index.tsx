@@ -12,7 +12,7 @@ import FeedbackSection from '@/components/FeedbackSection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
-  // Implement smooth scrolling
+  // Implement smooth scrolling with offset adjustment for different screen sizes
   useEffect(() => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -22,7 +22,8 @@ const Index = () => {
         
         const targetElement = document.querySelector(href);
         if (targetElement) {
-          const navbarHeight = 80; // Approximate height of the navbar
+          // Adjust navbar height based on screen size
+          const navbarHeight = window.innerWidth < 768 ? 70 : 80;
           const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
           
           window.scrollTo({
@@ -44,19 +45,12 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <div className="py-6"></div> {/* Spacing element */}
       <AboutSection />
-      <div className="py-4"></div> {/* Spacing element */}
       <ServicesSection />
-      <div className="py-4"></div> {/* Spacing element */}
       <PortfolioSection />
-      <div className="py-4"></div> {/* Spacing element */}
       <WhyChooseUs />
-      <div className="py-4"></div> {/* Spacing element */}
       <TestimonialsSection />
-      <div className="py-4"></div> {/* Spacing element */}
       <ContactSection />
-      <div className="py-4"></div> {/* Spacing element */}
       <FeedbackSection />
       <Footer />
     </div>

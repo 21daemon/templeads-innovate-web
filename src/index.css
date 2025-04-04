@@ -87,7 +87,7 @@
     @apply font-heading;
   }
   .section-padding {
-    @apply py-20 md:py-28 px-6 md:px-12 lg:px-24;
+    @apply py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 md:px-12 lg:px-24;
   }
   .gradient-text {
     @apply bg-gradient-to-r from-templeads-secondary to-templeads-accent bg-clip-text text-transparent;
@@ -105,6 +105,41 @@
   .animated-counter::after {
     content: counter(count);
   }
+  
+  /* Responsive text sizing */
+  .responsive-heading {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  .responsive-text {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+  
+  /* Pulse animation for play button */
+  .pulse-animation {
+    @apply relative;
+  }
+  
+  .pulse-animation::after {
+    content: '';
+    @apply absolute inset-0 rounded-full;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(44, 166, 164, 0.7);
+    }
+    70% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 15px rgba(44, 166, 164, 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(44, 166, 164, 0);
+    }
+  }
 }
 
 /* Enhanced section spacing */
@@ -118,7 +153,7 @@ section + section {
 
 /* Enhanced card styling */
 .card {
-  @apply bg-white rounded-xl shadow-md border border-gray-100 p-6 md:p-8 transition-all;
+  @apply bg-white rounded-xl shadow-md border border-gray-100 p-4 sm:p-6 md:p-8 transition-all;
 }
 
 .counter-wrapper {
@@ -153,4 +188,28 @@ button.gradient-button::before {
 
 button.gradient-button:hover::before {
   @apply opacity-100;
+}
+
+/* Enhanced responsive styling */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+  
+  .card {
+    @apply p-4;
+  }
+}
+
+/* Enhanced grid layouts for different screen sizes */
+.responsive-grid-2 {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6;
+}
+
+.responsive-grid-3 {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
+}
+
+.responsive-grid-4 {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6;
 }
