@@ -106,7 +106,7 @@ const TestimonialsSection = () => {
         <div className="relative max-w-4xl mx-auto">
           <div 
             ref={testimonialRef}
-            className={`bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 p-6 md:p-10 shadow-xl transition-opacity duration-500 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}
+            className={`bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 p-6 md:p-10 shadow-xl transition-all duration-300 hover:scale-105 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}
           >
             <div className="flex flex-col items-center text-center">
               <div className="mb-6">
@@ -170,16 +170,16 @@ const TestimonialsSection = () => {
         <div className="mt-16">
           <h3 className="text-xl md:text-2xl font-semibold text-center mb-8">Trusted by Leading Companies</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-            <div className="bg-white/10 p-4 rounded-lg flex items-center justify-center h-20">
+            <div className="bg-white/10 p-4 rounded-lg flex items-center justify-center h-20 transition-all duration-300 hover:bg-white/20 hover:scale-105">
               <div className="text-white font-bold text-xl">Company 1</div>
             </div>
-            <div className="bg-white/10 p-4 rounded-lg flex items-center justify-center h-20">
+            <div className="bg-white/10 p-4 rounded-lg flex items-center justify-center h-20 transition-all duration-300 hover:bg-white/20 hover:scale-105">
               <div className="text-white font-bold text-xl">Company 2</div>
             </div>
-            <div className="bg-white/10 p-4 rounded-lg flex items-center justify-center h-20">
+            <div className="bg-white/10 p-4 rounded-lg flex items-center justify-center h-20 transition-all duration-300 hover:bg-white/20 hover:scale-105">
               <div className="text-white font-bold text-xl">Company 3</div>
             </div>
-            <div className="bg-white/10 p-4 rounded-lg flex items-center justify-center h-20">
+            <div className="bg-white/10 p-4 rounded-lg flex items-center justify-center h-20 transition-all duration-300 hover:bg-white/20 hover:scale-105">
               <div className="text-white font-bold text-xl">Company 4</div>
             </div>
           </div>

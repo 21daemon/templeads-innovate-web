@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Bot, BrainCircuit, Cpu } from 'lucide-react';
@@ -104,7 +105,7 @@ const HeroSection = () => {
           </div>
           
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-sm md:max-w-md">
+            <div className="relative w-full max-w-sm md:max-w-md transition-all duration-300 hover:scale-105">
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl animate-fade-in">
                 <div className="bg-gradient-to-br from-templeads-secondary/20 to-templeads-accent/20 backdrop-blur-sm p-4 sm:p-6 rounded-2xl">
                   <div className="relative aspect-square rounded-xl overflow-hidden border border-white/20">

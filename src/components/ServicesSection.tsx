@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Code, Smartphone, Database, PenTool, BarChart, Bot, BrainCircuit, Cpu, FlaskConical, Network } from 'lucide-react';
@@ -19,7 +20,7 @@ const ServiceCard = ({ title, description, icon, features, highlighted = false }
   
   return (
     <div 
-      className={`bg-white rounded-xl shadow-md transition-all duration-300 hover:shadow-xl p-6 h-full flex flex-col justify-between ${
+      className={`bg-white rounded-xl shadow-md transition-all duration-300 hover:shadow-xl p-6 h-full flex flex-col justify-between transform hover:scale-105 ${
         highlighted 
           ? 'border-2 border-templeads-secondary ring-2 ring-templeads-secondary/20' 
           : 'card-hover'
