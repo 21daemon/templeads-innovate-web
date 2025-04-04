@@ -8,6 +8,7 @@ import PortfolioSection from '@/components/PortfolioSection';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
+import FeedbackSection from '@/components/FeedbackSection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -55,6 +56,8 @@ const Index = () => {
       <TestimonialsSection />
       <div className="py-4"></div> {/* Spacing element */}
       <ContactSection />
+      <div className="py-4"></div> {/* Spacing element */}
+      <FeedbackSection />
       <Footer />
     </div>
   );
