@@ -1,12 +1,13 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Bot, BrainCircuit, Cpu } from 'lucide-react';
+import { ArrowRight, Bot, BrainCircuit, Cpu, X } from 'lucide-react';
 import QuoteButton from "@/components/QuoteButton";
 import ScheduleMeetingButton from "@/components/ScheduleMeetingButton";
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [showVideo, setShowVideo] = useState(false);
   
   // Animation for particles
   useEffect(() => {
@@ -45,6 +46,14 @@ const HeroSection = () => {
       }
     };
   }, []);
+
+  const playVideo = () => {
+    setShowVideo(true);
+  };
+
+  const closeVideo = () => {
+    setShowVideo(false);
+  };
 
   return (
     <section 
@@ -109,7 +118,10 @@ const HeroSection = () => {
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl animate-fade-in">
                 <div className="bg-gradient-to-br from-templeads-secondary/20 to-templeads-accent/20 backdrop-blur-sm p-4 sm:p-6 rounded-2xl">
                   <div className="relative aspect-square rounded-xl overflow-hidden border border-white/20">
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-templeads-primary/90 to-templeads-dark/90">
+                    <div 
+                      className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-templeads-primary/90 to-templeads-dark/90 cursor-pointer"
+                      onClick={playVideo}
+                    >
                       <div className="text-center">
                         <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto bg-templeads-secondary/30 rounded-full flex items-center justify-center mb-4">
                           <div className="w-12 h-12 sm:w-16 sm:h-16 bg-templeads-secondary rounded-full flex items-center justify-center pulse-animation">
@@ -132,6 +144,31 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Video Modal */}
+      {showVideo && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10">
+          <div className="relative w-full max-w-4xl bg-templeads-primary/90 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+            <button 
+              onClick={closeVideo}
+              className="absolute top-4 right-4 z-10 bg-templeads-secondary/20 text-white rounded-full p-2 hover:bg-templeads-secondary/40 transition-colors"
+              aria-label="Close video"
+            >
+              <X size={24} />
+            </button>
+            
+            <div className="aspect-video w-full">
+              <iframe 
+                src="https://www.youtube.com/embed/NrmMk1Myrxc?autoplay=1" 
+                title="AI Showreel" 
+                className="w-full h-full border-0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
